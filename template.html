@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  padding: 25px;
+  font-size: 13px;
+  color: #000;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #d32f2f;
+  letter-spacing: 0.5px;
+}
+
+.header p {
+  margin: 2px 0;
+  font-size: 12px;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin: 15px 0 10px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+/* TABLE COMMON */
+.box-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.box-table td {
+  border: 1px solid #000;
+  padding: 7px;
+  vertical-align: middle;
+}
+
+/* LABEL STYLE */
+.label {
+  font-weight: bold;
+}
+
+/* SALARY TABLE */
+.salary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.salary-table th,
+.salary-table td {
+  border: 1px solid #000;
+  padding: 7px;
+}
+
+.salary-table th {
+  background: #f0f0f0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ALIGNMENT */
+.amount {
+  text-align: right;
+}
+
+/* NET SALARY */
+.net {
+  text-align: right;
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #666;
+}
+
+/* PRINT OPTIMIZATION */
+@media print {
+  body {
+    padding: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h2>TECHNICAL TRADE CONSULTANCY</h2>
+  <p>Workshop on Intraday Training, Technical Analysis and Market Psychology</p>
+  <p>1372 Shukrawar Peth, Natu Baug Pune-411002</p>
+  <p>Contact No: 9272000111 | Email: info@tusharbhumkar.com | Website: www.tusharbhumkar.com</p>
+</div>
+
+<div class="title">
+  Salary Slip for the Month of {{month}}
+</div>
+
+<!-- EMPLOYEE DETAILS -->
+<table class="box-table">
+  <tr>
+    <td><span class="label">Employee Name:</span> {{name}}</td>
+    <td><span class="label">Employee ID:</span> {{uan}}</td>
+  </tr>
+  <tr>
+    <td><span class="label">Designation:</span> {{designation}}</td>
+    <td><span class="label">Department:</span> {{department}}</td>
+  </tr>
+  <tr>
+    <td><span class="label">Date of Joining:</span> {{doj}}</td>
+    <td><span class="label">Shift:</span> {{shift}}</td>
+  </tr>
+</table>
+
+<!-- ATTENDANCE -->
+<table class="box-table">
+  <tr>
+    <td><span class="label">Gross Wages:</span> {{gross}}</td>
+    <td><span class="label">Leaves:</span> {{leaves}}</td>
+  </tr>
+  <tr>
+    <td><span class="label">Total Days in Month:</span> {{totalDays}}</td>
+    <td><span class="label">Week Offs:</span> {{weekoffs}}</td>
+  </tr>
+  <tr>
+    <td><span class="label">Holidays:</span> {{holidays}}</td>
+    <td><span class="label">Working Days:</span> {{workingDays}}</td>
+  </tr>
+  <tr>
+    <td><span class="label">Present Days:</span> {{present}}</td>
+    <td><span class="label">Absent Days:</span> {{absent}}</td>
+  </tr>
+</table>
+
+<!-- SALARY TABLE -->
+<table class="salary-table">
+  <tr>
+    <th>Earnings</th>
+    <th>Amount</th>
+    <th>Deductions</th>
+    <th>Amount</th>
+  </tr>
+
+  <tr>
+    <td>Basic</td>
+    <td class="amount">{{basic}}</td>
+    <td>EPF</td>
+    <td class="amount">{{epf}}</td>
+  </tr>
+
+  <tr>
+    <td>HRA</td>
+    <td class="amount">{{hra}}</td>
+    <td>ESIC</td>
+    <td class="amount">{{esic}}</td>
+  </tr>
+
+  <tr>
+    <td>Special Allowance</td>
+    <td class="amount">{{allowance}}</td>
+    <td>Professional Tax</td>
+    <td class="amount">{{pt}}</td>
+  </tr>
+
+  <tr>
+    <td>Incentive</td>
+    <td class="amount">{{incentive}}</td>
+    <td>Attendance Deductions</td>
+    <td class="amount">{{attendanceDeduction}}</td>
+  </tr>
+
+  <tr>
+    <td><b>Total Earnings</b></td>
+    <td class="amount"><b>{{totalEarnings}}</b></td>
+    <td><b>Total Deductions</b></td>
+    <td class="amount"><b>{{totalDeductions}}</b></td>
+  </tr>
+</table>
+
+<div class="net">
+  Net Salary: ₹ {{netSalary}}
+</div>
+
+<div class="footer">
+  This is a computer-generated document and does not require a signature.
+</div>
+
+</body>
+</html>

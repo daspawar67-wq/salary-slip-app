@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Salary Slip Generator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #eef2f7, #d9e4f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 35px 40px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 25px;
+    }
+
+    /* FILE UPLOAD */
+    .file-box {
+      border: 2px dashed #cfd8dc;
+      padding: 25px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .file-box:hover {
+      border-color: #007bff;
+      background: #f4f9ff;
+    }
+
+    .file-box input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+    }
+
+    .file-text {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .file-name {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #007bff;
+    }
+
+    /* MONTH INPUT */
+    .month-group {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    .month-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #444;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .month-input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .month-input:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0,123,255,0.1);
+    }
+
+    /* BUTTON */
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(0,123,255,0.3);
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 11px;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Salary Slip Generator</h2>
+  <div class="subtitle">Upload Excel file & generate salary slips instantly</div>
+
+  <form action="/upload" method="post" enctype="multipart/form-data">
+
+    <!-- File Upload -->
+    <label class="file-box">
+      <input type="file" name="excel" id="fileInput" required>
+      <div class="file-text">📂 Click or drag Excel file here</div>
+      <div id="fileName" class="file-name"></div>
+    </label>
+
+    <!-- Month Selector -->
+    <div class="month-group">
+      <label>Select Month & Year</label>
+      <input type="month" name="month" class="month-input" required>
+    </div>
+
+    <!-- Button -->
+    <button type="submit">Generate Salary Slips</button>
+
+  </form>
+
+  <div class="footer">
+    Supported format: .xlsx
+  </div>
+</div>
+
+<script>
+  // Show selected file name
+  const fileInput = document.getElementById("fileInput");
+  const fileName = document.getElementById("fileName");
+
+  fileInput.addEventListener("change", function () {
+    fileName.textContent = this.files[0]?.name || "";
+  });
+</script>
+
+</body>
+</html>

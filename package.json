@@ -1,21 +1,16 @@
 {
   "name": "salary-slip-app",
   "version": "1.0.0",
-  "description": "Salary Slip Generator",
   "main": "server.js",
   "type": "commonjs",
- "scripts": {
-  "start": "node server.js",
-  "postinstall": "PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer npx puppeteer browsers install chrome"
-},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "archiver": "^7.0.1",
     "express": "^5.2.1",
     "multer": "^2.1.1",
-    "puppeteer": "^24.40.0",
+    "puppeteer": "^22.0.0",
     "xlsx": "^0.18.5"
   }
 }

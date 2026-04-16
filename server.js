@@ -77,13 +77,7 @@ app.post("/upload", upload.single("excel"), async (req, res) => {
 
 const browser = await puppeteer.launch({
   headless: true,
-  executablePath:
-    "/opt/render/.cache/puppeteer/chrome/linux-146.0.7680.153/chrome-linux64/chrome",
-  args: [
-    "--no-sandbox",
-    "--disable-setuid-sandbox",
-    "--disable-dev-shm-usage"
-  ]
+  args: ["--no-sandbox", "--disable-setuid-sandbox"]
 });
 
     for (let emp of data) {

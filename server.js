@@ -80,6 +80,7 @@ const browser = await puppeteer.launch({
   args: [
     "--no-sandbox",
     "--disable-setuid-sandbox",
+    "--disable-dev-shm-usage"
   ]
 });
 

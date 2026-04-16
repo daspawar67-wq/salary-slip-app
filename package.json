@@ -4,10 +4,10 @@
   "description": "Salary Slip Generator",
   "main": "server.js",
   "type": "commonjs",
-  "scripts": {
-    "start": "node server.js",
-    "postinstall": "npx puppeteer browsers install chrome"
-  },
+ "scripts": {
+  "start": "node server.js",
+  "postinstall": "PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer npx puppeteer browsers install chrome"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
